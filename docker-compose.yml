@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  service-dva:
+    image: wiremock/wiremock:2.33.2
+    ports:
+      - 8080:8080
+    command:
+      - "--global-response-templating"
+    volumes:
+      - ./mappings/service-dva:/home/wiremock/mappings
+    networks:
+      - networkShared
+
+  service-one:
+    image: wiremock/wiremock:2.33.2
+    ports:
+      - 8081:8080
+    command:
+      - "--global-response-templating"
+    volumes:
+      - ./mappings/service-one:/home/wiremock/mappings
+    networks:
+      - networkShared
+
+networks:
+  networkShared:
+    name: network_shared

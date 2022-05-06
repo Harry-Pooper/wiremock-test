@@ -1,0 +1,121 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "GET",
+        "url": "/test-mapping/1"
+      },
+      "response": {
+        "status": 200,
+        "body": "Test completed",
+        "headers": {
+          "Content-Type": "text/plain",
+          "X-MDM-ID": "315316316316"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/test-mapping/proxy"
+      },
+      "response": {
+        "proxyBaseUrl": "http://localhost:4200/proxy-test"
+      }
+    },
+    {
+      "priority": 1,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "/test-mapping/multipurpose",
+        "queryParameters": {
+          "result": {
+            "equalTo": "200"
+          }
+        },
+        "headers": {
+          "X-MDM-ID": {
+            "equalTo": "34273247"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "Test completed with X-MDM-ID {{request.headers.X-MDM-ID}}",
+        "headers": {
+          "Content-Type": "text/plain"
+        }
+      }
+    },
+    {
+      "priority": 2,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "/test-mapping/multipurpose",
+        "queryParameters": {
+          "result": {
+            "equalTo": "200"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "Test completed",
+        "headers": {
+          "Content-Type": "text/plain"
+        }
+      }
+    },
+    {
+      "priority": 3,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "/test-mapping/multipurpose",
+        "queryParameters": {
+          "result": {
+            "equalTo": "400"
+          }
+        }
+      },
+      "response": {
+        "status": 400,
+        "body": "Test completed with 400",
+        "headers": {
+          "Content-Type": "text/plain"
+        }
+      }
+    },
+    {
+      "priority": 4,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "/test-mapping/multipurpose",
+        "queryParameters": {
+          "result": {
+            "equalTo": "401"
+          }
+        }
+      },
+      "response": {
+        "status": 401,
+        "body": "Test completed 401",
+        "headers": {
+          "Content-Type": "text/plain"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "/test-mapping/multipurpose"
+      },
+      "response": {
+        "status": 500,
+        "body": "Test completed 500",
+        "headers": {
+          "Content-Type": "text/plain"
+        }
+      }
+    }
+  ]
+}

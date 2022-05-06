@@ -1,0 +1,127 @@
+{
+	"info": {
+		"_postman_id": "06b56a48-0e13-40e1-bcb5-38a2e864af87",
+		"name": "Wiremock",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Change existing stub mapping",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"762fdbff-9802-4543-bb21-6d1463afcd7a\",\r\n    \"request\": {\r\n        \"url\": \"/test-mapping/proxy\",\r\n        \"method\": \"GET\"\r\n    },\r\n    \"response\": {\r\n        \"status\": 200,\r\n        \"proxyBaseUrl\": \"http://host.docker.internal:8081/proxy-test\"\r\n    },\r\n    \"uuid\": \"762fdbff-9802-4543-bb21-6d1463afcd7a\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/__admin/mappings/762fdbff-9802-4543-bb21-6d1463afcd7a",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"__admin",
+						"mappings",
+						"762fdbff-9802-4543-bb21-6d1463afcd7a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get existing mappings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/__admin/mappings",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"__admin",
+						"mappings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete existing mapping",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/__admin/mappings/66eedcfb-bee7-4521-8cdd-d5856f248943",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"__admin",
+						"mappings",
+						"66eedcfb-bee7-4521-8cdd-d5856f248943"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new mapping",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"request\": {\r\n    \"method\": \"GET\",\r\n    \"url\": \"/some/thing\"\r\n  },\r\n  \"response\": {\r\n    \"body\": \"Hello world!\",\r\n    \"headers\": {\r\n      \"Content-Type\": \"text/plain\"\r\n    },\r\n    \"status\": 200\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/__admin/mappings",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"__admin",
+						"mappings"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "http://localhost:8080"
+		}
+	]
+}
