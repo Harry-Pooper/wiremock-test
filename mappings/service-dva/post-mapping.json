@@ -1,0 +1,42 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/post-mapping/matcher",
+        "bodyPatterns": [
+          {
+            "equalToJson": {"test_value": "1", "additional_value": "2"},
+            "ignoreExtraElements": true
+          }
+        ]
+      },
+      "response": {
+        "status": "200",
+        "body": "{\"response\": \"2151326\", \"test_value\": \"5\"}",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "url": "/post-mapping/matcher",
+        "bodyPatterns": [
+          {
+            "equalToJson": {"test_value": "1"},
+            "ignoreExtraElements": true
+          }
+        ]
+      },
+      "response": {
+        "status": "200",
+        "body": "{\"response\": \"211\", \"test_value\": \"1\"}",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    }
+  ]
+}

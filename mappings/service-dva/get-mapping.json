@@ -20,7 +20,7 @@
         "url": "/test-mapping/proxy"
       },
       "response": {
-        "proxyBaseUrl": "http://localhost:4200/proxy-test"
+        "proxyBaseUrl": "http://service-one:8081/proxy-test"
       }
     },
     {
